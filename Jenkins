@@ -8,14 +8,14 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git url: 'https://github.com/spidermancow/Moot-Court.git', credentialsId: 'github-token'
+                git url: 'https://github.com/Razz7245/Shopease.git', credentialsId: 'github-token'
             }
         }
 
         stage('Build Docker Image') {
             steps {
                 script {
-                    sh 'docker build -t moot-court-app .'
+                    sh 'docker build -t shopease-app .'
                 }
             }
         }
@@ -23,7 +23,7 @@ pipeline {
         stage('Run Docker Image') {
             steps {
                 script {
-                    sh 'docker run -d -p 8085:8080 moot-court-app'
+                    sh 'docker run -d -p 8085:8080 shopease-app'
                 }
             }
         }
